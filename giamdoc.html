@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INPG Pharma</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+    a {
+        color: aliceblue;
+    }
+
+    #block_container>div {
+        display: inline-block;
+    }
+    .hidden-div {
+        display:none
+    }
+    .hidden-div1 {
+      display:none
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="giamdoc.html">INPG PHARMA</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="mytask.html">MY TASK <span class="sr-only">(current)</span></a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="inboxgd.html">Inbox</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addNv.html">Thêm nhân viên</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="" class="nav-link">Phòng ban</a>
+                </li> -->
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item  no-arrow mx-1">
+                    <a class="nav-link" href="#" role="button">
+                        <i class="fas fa-bell fa-fw"></i>
+                        <span class="badge badge-danger">9+</span>
+                    </a>
+                </li>
+                <li class="nav-item  no-arrow mx-1">
+                    <a class="nav-link" href="#" role="button">
+                        <i class="fas fa-envelope fa-fw"></i>
+                        <span class="badge badge-danger">7</span>
+                    </a>
+                </li>
+                <li class="nav-item no-arrow mx-1">
+                    <a href="#" class="nav-link">GĐ Hoàng Thị Mơ</a>
+                </li>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-fw"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" style="color: rgb(0, 4, 255);">Dashboad</a>
+            </li>
+            <li class="breadcrumb-item active" style="color: rgb(97, 97, 230);">
+                Bảng phân công công việc
+            </li>
+            <li class="breadcrumb-item active">
+                Phòng kinh doanh
+            </li>
+        </ol>
+    </div>
+    <div class="container-fluid">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm Task</button>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="background-color: blue">
+                    <h4 class="modal-title" style="color: aliceblue;">Tạo Task Mới</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Nhân viên
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 3%">
+                            <select class="form-control" id="sel1">
+                                <option>Nhân viên Sale</option>
+                                <option>Nhân viên Marketing</option>
+                                <option>Trưởng Phòng</option>
+                                <option>Phó phòng</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Mục tiêu
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 3%">
+                            <select class="form-control" id="sel2">
+                                <option>Dễ (1-10 triệu)</option>
+                                <option>Trung bình (20-50 triệu)</option>
+                                <option>Khá ( 50- 100 triệu)</option>
+                                <option>Tốt ( > 100 triệu)</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Công việc
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 3%">
+                            <input id="msg" type="text" class="form-control" name="msg" placeholder="">
+                        </div>
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Ngày bắt đầu
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 3%">
+                            <input id="datepicker1" />
+                        </div>
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Hạn hoàn thành
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 3%">
+                            <input id="datepicker2" />
+                        </div>
+                        <div class="col-sm-4" style="margin-top: 3%">
+                            Mô tả
+                        </div>
+                        <div class="col-sm-8" style="margin-top: 5%">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal"
+                        data-toggle="modal" data-target="#confirm">Thực hiện</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirm" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: blue">
+                    <h4 class="modal-title" style="color: aliceblue;">Xác nhận</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn đã chắc chắn chưa</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal"
+                        data-target="#myModal">No</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="#myModal" id="submit">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 1%">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col"> Phòng kinh doanh</th>
+                    <th scope="col">Chức vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Hoàng Thị Mơ
+                        <br>
+                        <!-- <a id="myMo" style="color: blue;">Chi tiết</a> -->
+                        <button type="button" class="btn btn-link" id="myMo">Chi tiết</button>
+                    </td>
+                    <td>Trưởng Phòng Kinh doanh</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Đinh Thị Thu Hoài
+                        <br>
+                        <button type="button" class="btn btn-link" id="myHoai">Chi tiết</button>
+                    </td>
+                    <td>Phó phòng kinh doanh</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Đào Mạnh Linh
+                    </td>
+                    <td>Nhân viên Sale</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Nguyễn Tôn Tú
+                    </td>
+                    <td>Nhân viên Marketing</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- the modal Mơ -->
+    <div class="modal fade" id="mymodalMo">
+        <div class="modal-dialog modal-lg mw-100 w-100">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="background-color: rgb(235, 18, 217);">
+                    <h4 class="modal-title" style="color: aliceblue;">Chi tiết công việc Hoàng Thị Mơ</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <!-- Đang thực hiện -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-primary" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Đang tiến hành</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <div id="block_container">
+                                            <div class="dropdown">
+                                                <button class="btn btn-link dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" data-toggle-second="tooltip"
+                                                    data-placement="right" title="Thêm người thực hiện">
+                                                    <i class="fas fa-user-plus"></i>
+                                                </button>
+                                                <div class="dropdown-menu" style="width: 200px">
+                                                    <div class="container">
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="check1">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="check1" name="option1" value="something"
+                                                                    checked>Đinh Thị Thu Hoài
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="check2">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="check2" name="option2" value="something">Đào
+                                                                Mạnh Linh
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">Nguyễn
+                                                                Tôn Tú
+                                                            </label>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn" data-toggle="modal"
+                                                data-target="#detailMo" id="detail1"> Phân tích quy mô thị trường và cạnh
+                                                tranh <i class="fas fa-caret-down"></i></button>
+                                        </div>
+                                        <!-- The Modal Detail MO -->
+                                        <div class="modal fade" id="myDetail">
+                                            <div class="modal-dialog modal-lg mw-75 w-75">
+                                                <div class="modal-content">
+                                
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header" style="background-color: rgb(38, 34, 250);">
+                                                        <h4 class="modal-title" style="color: aliceblue;">Phân tích thị trường Hà Nội 3 tháng cuối năm</h4>
+                                                        <button type="button" class="close" data-number="2">×</button>
+                                                    </div>
+                                
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-8">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>
+                                                                                <span>
+                                                                                    <button type="button" class="btn btn-success"
+                                                                                        onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'block'">
+                                                                                        <a href="#">Thêm mục tiêu</a></button>
+                                                                                </span>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tr style="margin: 3%">
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label>
+                                                                                    <div>
+                                                                                        <p id="editTask"><input type="checkbox">Phân tích quy mô thị
+                                                                                            trường và cạnh tranh</p>
+                                                                                            <!-- sửa  -->
+                                                                                        <span>
+                                                                                            <button type="button" class="btn"
+                                                                                                onclick="getElementById('hidden-div1').style.display = 'block'; this.style.display = 'block'">
+                                                                                                <a href="#" style="color: blue;"><i class="fas fa-edit"></i></a></button>
+                                                                                        </span>
+                                                                                        <!-- xóa -->
+                                                                                           <span> <button type="button" class="btn"><a href="delete.php"
+                                                                                            onclick="return confirm('Are you sure you want to delete this item?');"
+                                                                                            class='delete' style="color: red;"><i class="far fa-trash-alt"></i></a></button></span>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox" value="">Phân tích quy mô thị trường và
+                                                                                    cạnh tranh</label>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox" value="">Phân tích quy mô thị trường và
+                                                                                    cạnh tranh</label>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <!-- Add task -->
+                                                            <div class="col-sm-4">
+                                                                <div class="hidden-div" id="hidden-div">
+                                                                    <form action="/action_page.php">
+                                                                        <div class="form-group">
+                                                                            <label for="comment">Thêm mục tiêu</label>
+                                                                            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- Edit Task -->
+                                                                <div class="hidden-div1" id="hidden-div1">
+                                                                    <form action="/action_page.php">
+                                                                        <div class="form-group">
+                                                                            <label for="comment">Sửa mục tiêu</label>
+                                                                            <textarea class="form-control" rows="5" id="userInput" value=""></textarea>
+                                                                        </div>
+                                                                        <button type="button" class="btn btn-primary" onclick="changeText2()">Submit</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="progress" style="margin: 5%">
+                                                        <div class="progress-bar progress-bar-striped active progress-bar-animated" role="progressbar"
+                                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                                            40%
+                                                        </div>
+                                                    </div>
+                                
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success" data-number="2">Hoàn thành</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                
+                                        </div>
+
+                                        <!-- <div id="myDIV">
+                                            <div class="modal-body">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Danh sách công việc cần làm</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tr style="margin: 3%">
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label><input type="checkbox" value="">Phân tích quy mô
+                                                                    thị trường và cạnh
+                                                                    tranh</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label><input type="checkbox" value="">Phân tích quy mô
+                                                                    thị trường và cạnh
+                                                                    tranh</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label><input type="checkbox" value="">Phân tích quy mô
+                                                                    thị trường và cạnh
+                                                                    tranh</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div> -->
+
+                                    </td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active progress-bar-animated"
+                                                role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:40%">
+                                                40%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-link dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" data-toggle-second="tooltip"
+                                                data-placement="right" title="Thêm người thực hiện">
+                                                <i class="fas fa-user-plus"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <div class="container">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check1">
+                                                            <input type="checkbox" class="form-check-input" id="check1"
+                                                                name="option1" value="something" checked>Đinh Thị Thu
+                                                            Hoài
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check2">
+                                                            <input type="checkbox" class="form-check-input" id="check2"
+                                                                name="option2" value="something">Đào Mạnh Linh
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input">Nguyễn Tôn
+                                                            Tú
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                            Đánh giá điều chỉnh mục tiêu KPI của phòng
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active progress-bar-animated"
+                                                role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:60%">
+                                                60%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <!-- Modal Detail -->
+                        <div class="modal fade" id="modalDetail">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Phân tích thị trường khu vực HN 3 tháng cuối năm </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Modal body..
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chưa thực hiện -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-danger" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Chưa thực hiện</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Phân tích thị trường khu vực HN 3 tháng cuối năm</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active bg-danger"
+                                                role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:100%">
+                                                0%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Đánh giá điều chỉnh mục tiêu KPI của phòng</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active bg-danger"
+                                                role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:100%">
+                                                0%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Đã hoàn thành -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-success" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Đã hoàn thành</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Phân tích thị trường khu vực HN 3 tháng cuối năm</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100"
+                                                aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                100%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Đánh giá điều chỉnh mục tiêu KPI của phòng</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100"
+                                                aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                100%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- the modal Hoài -->
+    <div class="modal fade" id="mymodalHoai">
+        <div class="modal-dialog modal-lg mw-100 w-75">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Chi tiết công việc Đinh Thị Thu Hoài</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <!-- Đang thực hiện -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-primary" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Đang tiến hành</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-link dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" data-toggle-second="tooltip"
+                                                data-placement="right" title="Thêm người thực hiện">
+                                                <i class="fas fa-user-plus"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <div class="container">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check1">
+                                                            <input type="checkbox" class="form-check-input" id="check1"
+                                                                name="option1" value="something" checked>Hoàng Thị Mơ
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check2">
+                                                            <input type="checkbox" class="form-check-input" id="check2"
+                                                                name="option2" value="something">Đào Mạnh Linh
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input">Nguyễn Tôn
+                                                            Tú
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                            Phân tích thị trường khu vực HN 3 tháng cuối năm
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active progress-bar-animated"
+                                                role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:40%">
+                                                40%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-link dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" data-toggle-second="tooltip"
+                                                data-placement="right" title="Thêm người thực hiện">
+                                                <i class="fas fa-user-plus"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <div class="container">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check1">
+                                                            <input type="checkbox" class="form-check-input" id="check1"
+                                                                name="option1" value="something" checked>Hoàng Thị Mơ
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="check2">
+                                                            <input type="checkbox" class="form-check-input" id="check2"
+                                                                name="option2" value="something">Đào Mạnh Linh
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input">Nguyễn Tôn
+                                                            Tú
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                            Đánh giá điều chỉnh mục tiêu KPI của phòng
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active progress-bar-animated"
+                                                role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:60%">
+                                                60%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- thêm người thực hiện -->
+                        <div class="modal fade" id="add">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Modal Heading</h4>
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Modal body..
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal Detail -->
+                        <div class="modal fade" id="modalDetail">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Phân tích thị trường khu vực HN 3 tháng cuối năm </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Modal body..
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chưa thực hiện -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-danger" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Chưa thực hiện</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Phân tích thị trường khu vực HN 3 tháng cuối năm</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active bg-danger"
+                                                role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:100%">
+                                                0%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Đánh giá điều chỉnh mục tiêu KPI của phòng</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped active bg-danger"
+                                                role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100" style="width:100%">
+                                                0%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Đã hoàn thành -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="bg-success" style="color: aliceblue;">
+                                    <th scope="col">#</th>
+                                    <th scope="col" style="width: 60%">Đã hoàn thành</th>
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Thời hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Phân tích thị trường khu vực HN 3 tháng cuối năm</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100"
+                                                aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                100%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Đánh giá điều chỉnh mục tiêu KPI của phòng</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100"
+                                                aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                100%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>18/10-20/10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("button[data-number=2]").click(function(){
+            $('#myDetail').modal('hide');
+        });
+        $(document).ready(function () {
+            $("#detail1").click(function () {
+                $("#myDetail").modal();
+            });
+        });
+        function changeText2() {
+            var userInput = document.getElementById('userInput').value;
+            document.getElementById('editTask').innerHTML = userInput;
+        }
+        $('#myModal').modal('hide');
+        $('#submit').on('click', function (e) {
+            $('.modal').modal('hide');
+        });
+        function myFunction1() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+
+        $(document).ready(function () {
+            $("#myMo").click(function () {
+                $("#mymodalMo").modal();
+            });
+        });
+
+        $(document).ready(function () {
+            $("#myHoai").click(function () {
+                $("#mymodalHoai").modal();
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
